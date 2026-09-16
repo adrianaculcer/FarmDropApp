@@ -1,27 +1,23 @@
-# ── Compiled output ─────────────────────────────────────────────
+# Compiled output
 out/
 target/
 *.class
 
-# ── IntelliJ IDEA ───────────────────────────────────────────────
+#
 .idea/
 *.iml
 *.iws
 *.ipr
 
-# ── Maven wrapper jar (binary, not needed in repo) ───────────────
 backend/.mvn/wrapper/maven-wrapper.jar
 
-# ── OS / editor noise ───────────────────────────────────────────
 .DS_Store
 .vscode/
 Thumbs.db
 
-# ── University OOP sub-project (has its own git repo) ───────────
+# University OOP sub-project (has its own git repo)
 oop-project-adrianaculcer/
 
-# ── Spring Boot auto-generated help file ─────────────────────────
 backend/HELP.md
 
-# ── Claude Code session files ────────────────────────────────────
 .claude/
