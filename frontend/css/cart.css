@@ -1,0 +1,306 @@
+/* =========================
+   cart.css (replace whole file)
+   ========================= */
+
+/* page container */
+.cart {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: clamp(2rem, 4vw, 4.5rem);
+}
+
+/* header */
+.cart__header h1 {
+    font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+    color: var(--text-light);
+    letter-spacing: 0.4px;
+    margin-bottom: 0.8rem;
+}
+
+.cart__header p {
+    font-size: clamp(1.5rem, 1.6vw, 1.35rem);
+    color: #6b6654;
+    margin-bottom: clamp(1.8rem, 3vw, 3rem);
+}
+
+/* MAIN LAYOUT: items + summary */
+.cart__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+    gap: clamp(1.6rem, 3vw, 3.5rem);  /* <<< spacing between left and right */
+    align-items: start;
+}
+
+/* left column */
+.cart__items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* <<< spacing between rows */
+    min-width: 0;
+}
+
+/* empty message (works if JS inserts <p class="cart__empty">... ) */
+.cart__empty {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: #6b6654;
+    margin-top: 1rem;
+}
+
+/* fallback: if message is just a <p> inside items */
+.cart__items > p {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: #6b6654;
+    margin-top: 1rem;
+}
+
+/* item row */
+.cart-item {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr) 180px;
+    gap: 1.2rem;                     /* <<< spacing inside row */
+    background: #2a2f22;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    padding: 1.2rem;                  /* <<< bigger padding */
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    color: #f3f4ef;
+    min-width: 0;
+}
+
+/* image */
+.cart-item__img {
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    object-fit: cover;
+    outline: 3px solid rgba(23, 30, 16, 0.55);
+}
+
+/* info */
+.cart-item__info h3 {
+    font-size: clamp(1.25rem, 1.5vw, 1.6rem);
+    margin-bottom: 0.35rem;
+}
+
+.cart-item__meta {
+    font-size: 1rem;
+    color: rgba(243, 244, 239, 0.72);
+    margin-bottom: 0.9rem;
+}
+
+/* qty control */
+.cart-item__qty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    padding: 0.55rem 0.75rem;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.qty-btn {
+    border: none;
+    background: var(--green);
+    color: antiquewhite;
+    width: 38px;
+    height: 34px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.qty-btn:hover {
+    background: var(--green-soft);
+}
+
+.qty-value {
+    min-width: 28px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* right side */
+.cart-item__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.8rem;
+    min-width: 0;
+}
+
+.cart-item__price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--green-soft);
+}
+
+.remove-btn {
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: #f3f4ef;
+    padding: 0.55rem 0.85rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+.remove-btn:hover {
+    background: rgba(255,255,255,0.14);
+}
+
+/* SUMMARY CARD */
+.cart__summary {
+    width: 100%;
+    max-width: 420px;
+    background: #2a2f22;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    padding: 1.3rem 1.3rem;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    color: #f3f4ef;
+    position: sticky;
+    top: 105px; /* under sticky navbar */
+    min-width: 0;
+}
+
+.cart__summary h2 {
+    font-size: clamp(1.5rem, 1.7vw, 1.9rem);
+    margin-bottom: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 1.05rem;
+    padding: 0.45rem 0;
+}
+
+.summary-sep {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    margin: 0.9rem 0;
+}
+
+.summary-total {
+    font-size: 1.15rem;
+}
+
+.cart__rule {
+    margin-top: 1rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.cart__rule--ok {
+    background: rgba(127, 166, 90, 0.12);
+    border: 1px solid rgba(127, 166, 90, 0.25);
+    color: rgba(243, 244, 239, 0.9);
+}
+
+.checkout-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: var(--green);
+    border: none;
+    padding: 0.85rem 1rem;
+    color: antiquewhite;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.checkout-btn:hover {
+    background: var(--green-soft);
+}
+
+.continue-link {
+    display: inline-block;
+    margin-top: 0.9rem;
+    color: rgba(243, 244, 239, 0.85);
+    text-decoration: none;
+    font-size: 1.05rem;
+}
+
+.continue-link:hover {
+    color: #f6ead9;
+}
+
+/* =========================
+   RESPONSIVE FIXES
+   ========================= */
+
+/* when screen is not wide enough: stack summary under items */
+@media (max-width: 1100px) {
+    .cart__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cart__summary {
+        position: static;   /* stop sticky so it doesn't go weird */
+        max-width: 100%;
+        margin-top: 0.5rem;
+    }
+}
+
+/* mobile row layout */
+@media (max-width: 700px) {
+    .cart {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .cart-item {
+        grid-template-columns: 90px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .cart-item__img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cart-item__right {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.75rem;
+    }
+
+    .cart-item__price {
+        font-size: 1.15rem;
+    }
+}
+
+/* very small */
+@media (max-width: 420px) {
+    .qty-btn {
+        width: 34px;
+        height: 32px;
+    }
+
+    .remove-btn {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.7rem;
+    }
+}
+
+.cart__empty{
+    color: #6b6654;      /* schimba aici culoarea */
+    font-size: 1.6rem;   /* mai mare */
+    font-weight: 550;
+    margin-top: 1.2rem;
+}
+
+
+

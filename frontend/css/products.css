@@ -1,0 +1,73 @@
+.products {
+    color: var(--text-light);
+    padding: 4rem;
+}
+
+.products h1 {
+    margin-bottom: 2rem;
+    color: #515a2e;
+}
+
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    gap: 2rem;
+}
+
+.product__card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 0 0 8px var(--bg-card);
+    overflow: hidden;
+}
+
+.product__card:hover{
+    transform: scale(1.075);
+    transition: 0.2s ease-out;
+
+}
+
+
+.product__card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.product__card h3 {
+    padding: 1rem;
+    color: #f6ead9;
+}
+
+.product__card p {
+    padding: 0 1rem;
+    color: var(--text-muted);
+}
+
+.product__card button {
+    margin: 1rem;
+    background: var(--green);
+    border: none;
+    padding: 10px;
+    color: antiquewhite;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.product__card button:hover{
+    background-color: var(--green-soft);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.products__grid {
+    justify-content: center; /* ca sa nu stea lipite stanga cand sunt putine */
+}
+
+.products__error{
+    margin-top: 1.5rem;
+    color: #b12a5b;
+    font-size: 1.1rem;
+}

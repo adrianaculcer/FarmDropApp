@@ -1,0 +1,149 @@
+.signup {
+    padding: 4rem;
+    color: var(--text-light);
+}
+
+.signup__wrap {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.signup__card {
+
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.signup__header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    color: #f6ead9;
+    letter-spacing: 0.3px;
+}
+
+.signup__header p {
+    margin: 0.7rem 0 1.4rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.signup__form {
+    display: grid;
+    gap: 1rem;
+}
+
+.field {
+
+    display: grid;
+    gap: 0.45rem;
+}
+
+.field label {
+    color: rgba(243, 244, 239, 0.88);
+    font-size: 1rem;
+}
+
+.field input {
+    cursor: text;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    color: #f3f4ef;
+    caret-color: #f3f4ef;
+    outline: none;
+    font-size: 1rem;
+}
+
+
+
+.field input::placeholder {
+    color: rgba(243, 244, 239, 0.45);
+}
+
+.field input:focus {
+    border-color: rgba(127, 166, 90, 0.75);
+    box-shadow: 0 0 0 3px rgba(127, 166, 90, 0.16);
+}
+
+.signup__btn {
+    margin-top: 0.3rem;
+    width: 100%;
+    background: var(--green);
+    border: none;
+    padding: 12px 14px;
+    color: antiquewhite;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.signup__btn:hover {
+    background: var(--green-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+}
+
+.signup__note {
+    margin: 0.2rem 0 0;
+    color: rgba(243, 244, 239, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 10px 12px;
+    border-radius: 12px;
+}
+
+.signup__footer {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.4rem;
+}
+
+.signup__link {
+    color: rgba(243, 244, 239, 0.8);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.signup__link:hover {
+    color: #f6ead9;
+}
+
+@media (max-width: 600px) {
+    .signup {
+        padding: 3rem 1.5rem;
+    }
+
+    .signup__footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* CHROME AUTOFILL FIX */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus,
+.field input:-webkit-autofill:active {
+    -webkit-text-fill-color: #f3f4ef !important;
+    caret-color: #f3f4ef !important;
+
+    /* paint over the autofill background */
+    -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.04) inset !important;
+    box-shadow: 0 0 0 1000px rgba(255,255,255,0.04) inset !important;
+
+    /* some Chrome versions need this too */
+    background-color: transparent !important;
+
+    /* prevents the "flash" back to white */
+    transition: background-color 9999s ease-out 0s, color 9999s ease-out 0s;
+}

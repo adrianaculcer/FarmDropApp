@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+
+    <script src="https://kit.fontawesome.com/0bd432b4e4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="." id="navbar__logo"><i class="fa-solid fa-seedling"></i> FARMDROP </a>
+
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+
+        <ul class="navbar__menu">
+            <li class="navbar__item"><a href="./" class="navbar__links">Home</a></li>
+            <li class="navbar__item"><a href="products.html" class="navbar__links">Products</a></li>
+            <li class="navbar__item"><a href="boxes.html" class="navbar__links">Boxes</a></li>
+            <li class="navbar__item"><a href="cart.html" class="navbar__links cart-link"><i class="fa-solid fa-basket-shopping"></i> Cart<span class="cart-badge" id="cart-count">0</span> </a></li>
+            <li class="navbar__btn"><a href="signup.html" class="button">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="main">
+    <section class="cart">
+        <div class="cart__header">
+            <h1>Your Cart</h1>
+            <p>Review items before checkout.</p>
+        </div>
+
+        <div class="cart__layout">
+
+            <!-- LEFT: items list -->
+            <div class="cart__items">
+                <div id="cart-items">
+                    
+                </div>
+            </div>
+
+            <!-- RIGHT: summary -->
+            <aside class="cart__summary">
+                <h2>Summary</h2>
+
+                <div class="summary-row">
+                    <span>Products (individual)</span>
+                    <strong><span id="sum-products">0.00</span> lei</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Boxes</span>
+                    <strong><span id="sum-boxes">0.00</span> lei</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <strong><span id="sum-delivery">0.00</span> lei</strong>
+                </div>
+
+                <hr class="summary-sep">
+
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <strong><span id="cart-total">0.00</span> lei</strong>
+                </div>
+
+                <p id="cart-rule" class="cart__rule"></p>
+
+                <!-- optional: mesaj dupa checkout -->
+                <p id="checkout-msg" class="cart__rule" style="display:none;"></p>
+
+                <button class="checkout-btn" id="checkout-btn" type="button">Checkout</button>
+
+                <a class="continue-link" href="products.html">← Continue shopping</a>
+            </aside>
+
+
+        </div>
+    </section>
+</div><!-- FOOTER SECTION -->
+<div class="footer__container">
+    <div class="footer__links">
+        <div class="footer__link--wrapper">
+            <div class="footer__link--items">
+                <h2><i class="fa-solid fa-circle-question"></i>Help</h2>
+                <a href="/">FAQs</a>
+                <a href="/">Delivery & pickup</a>
+                <a href="/">Minimum order policy</a>
+            </div>
+
+            <div class="footer__link--items">
+                <h2>Contact</h2>
+                <a href="mailto:fermasantuhalm@gmail.com"><i class="fa-solid fa-envelope"></i>fermasantuhalm@gmail.com</a>
+                <a href="/"><i class="fa-solid fa-map-pin"></i>Deva</a>
+                <a href="/"><i class="fa-solid fa-calendar"></i>Mon-Tue 9-18  Fri-Sat 9-18</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="social__media">
+        <div class="social__media--wrap">
+            <div class="footer__logo">
+                <a href="./" id="footer__logo"><i class="fa-solid fa-seedling"></i>FARMDROP</i></a>
+            </div>
+            <p class="website__rights"><i class="fa-solid fa-copyright"></i>FARMDROP 2026. All rights reserved</p>
+            <div class="social__icons">
+                <a href="https://www.facebook.com/profile.php?id=61565058059499" class="social__icon--link" target="blank" rel="noopener">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="https://www.instagram.com/fermasantuhalm1996/" class="social__icon--link" target="blank" rel="noopener">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/script.js"></script>
+<script src="js/cart-store.js"></script>
+<script src="js/cart-page.js"></script>
+
+</body>
+</html>

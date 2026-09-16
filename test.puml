@@ -1,0 +1,206 @@
+@startuml
+class com.farmdrop.farmdropapi.models.Vegetable {
+- String harvestSeason
++ double calculatePrice(double)
++ String getHarvestSeason()
++ void setHarvestSeason(String)
+}
+
+
+class com.farmdrop.farmdropapi.controller.boxes_controller {
+- catalog_service catalog
++ List<BoxDto> get_boxes()
+}
+
+
+class com.farmdrop.farmdropapi.models.Fruit {
++ double calculatePrice(double)
+}
+
+class com.farmdrop.farmdropapi.controller.products_controller {
+- catalog_service catalog
++ List<ProductDto> get_products()
+}
+
+
+class com.farmdrop.farmdropapi.FarmdropApiApplication {
++ {static} void main(String[])
+}
+
+class com.farmdrop.farmdropapi.models.Order {
+- int id
+- User user
+- Map<Product,Integer> items
+- double totalPrice
+- LocalDateTime orderDate
+- {static} int idIndex
++ void addProduct(Product,int)
++ void calculateTotal()
++ double getTotalPrice()
++ boolean containsOnlyIndividualProducts()
++ boolean canPlaceOrder()
++ void placeOrder()
+}
+
+
+class com.farmdrop.farmdropapi.service.catalog_service {
+- Map<String,ProductDto> productsById
+- Map<String,BoxDto> boxesById
++ List<ProductDto> get_products_dto()
++ List<BoxDto> get_boxes_dto()
++ double calc_products_total(Map<String,Double>)
++ double calc_boxes_total(Map<String,Double>)
+}
+
+
+class com.farmdrop.farmdropapi.dto.CheckoutRequest {
+- List<CartItem> items
++ List<CartItem> getItems()
++ void setItems(List<CartItem>)
+}
+
+
+class com.farmdrop.farmdropapi.dto.CheckoutRequest$CartItem {
+- String type
+- String id
+- int qty
++ String getType()
++ void setType(String)
++ String getId()
++ void setId(String)
++ int getQty()
++ void setQty(int)
+}
+
+
+class com.farmdrop.farmdropapi.exceptions.Under100LeiException {
+}
+class com.farmdrop.farmdropapi.models.User {
+- int id
+- String name
+- String password
+- String email
+- String role
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
++ String getPassword()
++ void setPassword(String)
++ String getEmail()
++ void setEmail(String)
++ String getRole()
++ void setRole(String)
+}
+
+
+class com.farmdrop.farmdropapi.dto.BoxDto {
+- String id
+- String name
+- double price
+- String image
+- String subtitle
+- List<BoxItemDto> items
++ String getId()
++ String getName()
++ double getPrice()
++ String getImage()
++ String getSubtitle()
++ List<BoxItemDto> getItems()
+}
+
+
+class com.farmdrop.farmdropapi.dto.BoxItemDto {
+- String name
+- double quantity
+- String unit
++ String getName()
++ double getQuantity()
++ String getUnit()
+}
+
+
+class com.farmdrop.farmdropapi.dto.CheckoutResponse {
+- boolean canCheckout
+- String message
+- double productsTotal
+- double boxesTotal
+- double delivery
+- double total
++ boolean isCanCheckout()
++ String getMessage()
++ double getProductsTotal()
++ double getBoxesTotal()
++ double getDelivery()
++ double getTotal()
+}
+
+
+class com.farmdrop.farmdropapi.models.SweetCorn {
++ double calculatePrice(double)
+}
+
+class com.farmdrop.farmdropapi.exceptions.BulkOrderException {
+}
+class com.farmdrop.farmdropapi.dto.ProductDto {
+- String id
+- String name
+- double price
+- String unit
+- String image
++ String getId()
++ String getName()
++ double getPrice()
++ String getUnit()
++ String getImage()
+}
+
+
+class com.farmdrop.farmdropapi.models.BoxFactory {
++ {static} Box soupBox()
+}
+
+abstract class com.farmdrop.farmdropapi.models.Product {
+# String name
+# double price
+# int id
+# String unit
++ {abstract}double calculatePrice(double)
++ String getName()
++ void setName(String)
++ double getPrice()
++ void setPrice(double)
++ int getId()
++ void setId(int)
++ String getUnit()
++ void setUnit(String)
+}
+
+
+class com.farmdrop.farmdropapi.models.Box {
+- Map<Product,Double> items
++ void addProduct(Product,double)
++ double calculatePrice(double)
++ Map<Product,Double> getItems()
++ void setItems(Map<Product,Double>)
+}
+
+
+class com.farmdrop.farmdropapi.controller.checkout_controller {
+- {static} double MIN_SOLO_PRODUCTS
+- {static} double DELIVERY_FEE
+- catalog_service catalog
++ ResponseEntity<CheckoutResponse> checkout(CheckoutRequest)
+}
+
+
+
+
+com.farmdrop.farmdropapi.models.Product <|-- com.farmdrop.farmdropapi.models.Vegetable
+com.farmdrop.farmdropapi.models.Product <|-- com.farmdrop.farmdropapi.models.Fruit
+com.farmdrop.farmdropapi.dto.CheckoutRequest +.. com.farmdrop.farmdropapi.dto.CheckoutRequest$CartItem
+com.farmdrop.farmdropapi.exceptions.RuntimeException <|-- com.farmdrop.farmdropapi.exceptions.Under100LeiException
+com.farmdrop.farmdropapi.models.Product <|-- com.farmdrop.farmdropapi.models.SweetCorn
+com.farmdrop.farmdropapi.exceptions.Exception <|-- com.farmdrop.farmdropapi.exceptions.BulkOrderException
+com.farmdrop.farmdropapi.models.Product <|-- com.farmdrop.farmdropapi.models.Box
+@enduml
